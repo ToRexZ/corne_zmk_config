@@ -98,15 +98,25 @@
         //         };
         // };
 
-        combos {
-                compatible = "zmk,combos";
+        // combos {
+        //         compatible = "zmk,combos";
+
+        //         // Behavior for simultaneous key press of both layer keys.
+        //         combo_third_layer {
+        //                 timeout-ms = <100>;
+        //                 key-positions = <&mo 1 &mo 2>; // Layer keys
+        //                 bindings = <&mo 3>; // Third layer
+        //         };
+        // };
+
+        conditional_layers {
+                compatible = "zmk,conditional-layers";
 
                 // Behavior for simultaneous key press of both layer keys.
-                combo_third_layer {
-                        timeout-ms = <100>;
-                        key-positions = <&mo 1 &mo 2>; // Layer keys
-                        bindings = <&mo 3>; // Third layer
+                tri_layer {
+                        if-layers = <1 2>;
+                        then-layer = <3>;
                 };
-        };
+        }; 
 };
 /*  */
