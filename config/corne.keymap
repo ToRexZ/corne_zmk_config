@@ -86,15 +86,26 @@
         };
 
 
-        behaviors {
-                compatible = "zmk,behaviors";
+        // behaviors {
+        //         compatible = "zmk,behaviors";
+
+        //         // Behavior for simultaneous key press of both layer keys.
+        //         third_layer_combination {
+        //                 type = "zmk,key-combination";
+        //                 keys = <&mo 1 &mo 2>; // Layer keys
+        //                 timeout-ms = <100>;
+        //                 target = <&mo 3>; // Third layer
+        //         };
+        // };
+
+        combos {
+                compatible = "zmk,combos";
 
                 // Behavior for simultaneous key press of both layer keys.
-                third_layer_combination {
-                        type = "zmk,key-combination";
-                        keys = <&mo 1 &mo 2>; // Layer keys
+                combo_third_layer {
                         timeout-ms = <100>;
-                        target = <&mo 3>; // Third layer
+                        key-positions = <&mo 1 &mo 2>; // Layer keys
+                        bindings = <&mo 3>; // Third layer
                 };
         };
 };
