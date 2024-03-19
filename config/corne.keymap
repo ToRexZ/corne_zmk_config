@@ -11,15 +11,15 @@
 
 / {
 
-        conditional_layers {
-                compatible = "zmk,conditional-layers";
+        // conditional_layers {
+        //         compatible = "zmk,conditional-layers";
 
-                // Behavior for simultaneous key press of both layer keys.
-                tri_layer {
-                        if-layers = <1 2>;
-                        then-layer = <3>;
-                };
-        }; 
+        //         // Behavior for simultaneous key press of both layer keys.
+        //         tri_layer {
+        //                 if-layers = <1 2>;
+        //                 then-layer = <3>;
+        //         };
+        // }; 
 
 
         keymap {
