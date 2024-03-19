@@ -92,7 +92,7 @@
                 // Behavior for simultaneous key press of both layer keys.
                 third_layer_combination {
                         type = "zmk,key-combination";
-                        keys = <&mo 1 &mo 2> // Layer keys
+                        keys = <&mo 1 &mo 2>; // Layer keys
                         timeout-ms = <100>;
                         target = <&mo 3>; // Third layer
                 }
