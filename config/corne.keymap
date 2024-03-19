@@ -52,7 +52,7 @@
    &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5     &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &trans
    &trans     &trans       &trans       &trans       &trans       &trans     &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
    &kp LCTRL  &trans       &trans       &trans       &trans       &trans     &trans   &trans   &trans &trans    &trans &trans
-                                    &kp LGUI     &mo TRI       &kp SPACE      &kp BSPC &trans   &kp LALT
+                                        &kp LGUI     &trans       &kp SPACE  &kp BSPC &trans   &kp LALT
                         >;
                 };
 
@@ -82,7 +82,7 @@
    &kp  TAB  &trans   &kp AT   &kp HASH  &kp DLLR    &kp LPAR    &kp RPAR &kp AMPS  &kp KP_MULTIPLY &kp PLUS  &kp EQUAL &trans
    &kp LSHFT &trans   &kp EXCL &kp SQT   &kp PERCENT &kp LBKT    &kp RBKT &kp MINUS &kp UNDER        &kp CARET &kp BSLH  &trans 
    &kp LCTRL &trans   &trans   &kp GRAVE &kp PIPE    &kp LBRC    &kp RBRC &kp TILDE &trans          &trans    &trans    &trans 
-                             &kp LGUI &trans   &kp SPACE   &kp BSPC  &mo TRI   &kp LALT
+                                &kp LGUI &trans      &kp SPACE   &kp BSPC &trans    &kp LALT
                         >;
                 };
 
@@ -100,55 +100,6 @@
                                        &kp LGUI     &trans       &kp SPACE      &kp BSPC &trans   &kp LALT
                         >;
                 };
-
-//                 tri_layer {
-// // -----------------------------------------------------------------------------------------
-// // | TAB  | CLR |      |      |      |     |   |      |     |     |     |     | ENT  |
-// // | SHFT | BT 1| BT 2 | BT 3 | BT 4 |     |   |      |     |     |     |     |      |
-// // | CTRL |     |      |      |      |     |   |      |     |     |     |     |      |
-// //                     | GUI  |      | SPC |   | BKSP |     | ALT |
-//                         bindings = <
-//    &kp TAB   &trans   &trans       &trans       &trans       &trans         &trans   &trans   &trans   &trans   &trans   &kp RET
-//    &bt LSHFT &trans   &trans       &trans       &trans       &trans         &trans   &trans   &trans   &trans   &trans   &trans
-//    &kp LCTRL &trans   &trans       &trans       &trans       &trans         &trans   &trans   &trans   &trans   &trans   &trans
-//                                        &kp LGUI     &trans   &kp SPACE      &kp BSPC &trans   &kp LALT
-//                         >;
-//                 };
-
         };
-
-
-        // behaviors {
-        //         compatible = "zmk,behaviors";
-
-        //         // Behavior for simultaneous key press of both layer keys.
-        //         third_layer_combination {
-        //                 type = "zmk,key-combination";
-        //                 keys = <&mo 1 &mo 2>; // Layer keys
-        //                 timeout-ms = <100>;
-        //                 target = <&mo 3>; // Third layer
-        //         };
-        // };
-
-        // combos {
-        //         compatible = "zmk,combos";
-
-        //         // Behavior for simultaneous key press of both layer keys.
-        //         combo_third_layer {
-        //                 timeout-ms = <100>;
-        //                 key-positions = <&mo 1 &mo 2>; // Layer keys
-        //                 bindings = <&mo 3>; // Third layer
-        //         };
-        // };
-
-        // conditional_layers {
-        //         compatible = "zmk,conditional-layers";
-
-        //         // Behavior for simultaneous key press of both layer keys.
-        //         tri_layer {
-        //                 if-layers = <1 2>;
-        //                 then-layer = <3>;
-        //         };
-        // }; 
 };
 /*  */
