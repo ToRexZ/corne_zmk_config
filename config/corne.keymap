@@ -69,7 +69,7 @@
                              &kp LGUI &trans   &kp SPACE   &kp BSPC  &trans    &kp LALT
                         >;
                 };
-                third_layer {
+                tri_layer {
 // -----------------------------------------------------------------------------------------
 // | TAB  | CLR |      |      |      |     |   |      |     |     |     |     | ENT  |
 // | SHFT | BT 1| BT 2 | BT 3 | BT 4 |     |   |      |     |     |     |     |      |
