@@ -95,7 +95,7 @@
                         keys = <&mo 1 &mo 2>; // Layer keys
                         timeout-ms = <100>;
                         target = <&mo 3>; // Third layer
-                }
-        }
+                };
+        };
 };
 /*  */
