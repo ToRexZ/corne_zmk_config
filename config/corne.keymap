@@ -82,13 +82,13 @@
                 raise_layer {
 // -----------------------------------------------------------------------------------------
 // | TAB  |  !  |  @  |  #  |  $  |  &  |   |  +  |  [  |  ]  |  +  |  ^  | ENT  |
-// | SHFT |     |  %  |  '  |  ~  |  "  |   |  =  |  (  |  )  |  -  |  \  | SHFT |
+// | SHFT |     |  %  |  '  |  "  |  ~  |   |  =  |  (  |  )  |  -  |  \  | SHFT |
 // | CTRL |     |     |  `  | "|" |  *  |   |  _  |  {  |  }  |     |     | ESC  |
 //                    | GUI |     | SPC |   | BKSP|     | ALT |
                         bindings = <
-   &kp  TAB  &kp EXCL &kp AT      &kp HASH  &kp DLLR    &kp AMPS        &kp PLUS &kp LBKT  &kp RBKT  &kp PLUS  &kp CARET &trans
-   &kp LSHFT &trans   &kp PERCENT &kp SQT   &kp TILDE   &kp DQT         &kp RBKT &kp LPAR  &kp RPAR  &kp MINUS &kp BSLH  &trans 
-   &kp LCTRL &trans   &trans      &kp GRAVE &kp PIPE    &kp KP_MULTIPLY &kp RBRC &kp LBRC  &kp RBRC  &trans    &trans    &trans 
+   &kp TAB   &kp EXCL &kp AT      &kp HASH  &kp DLLR    &kp AMPS        &kp PLUS  &kp LBKT  &kp RBKT  &kp PLUS  &kp CARET &trans
+   &kp LSHFT &trans   &kp PERCENT &kp SQT   &kp DQT     &kp TILDE       &kp EQUAL &kp LPAR  &kp RPAR  &kp MINUS &kp BSLH  &trans 
+   &kp LCTRL &trans   &trans      &kp GRAVE &kp PIPE    &kp KP_MULTIPLY &kp UNDER &kp LBRC  &kp RBRC  &trans    &trans    &trans 
                                 &kp LGUI &trans      &kp SPACE          &kp BSPC &trans    &kp LALT
                         >;
                 };
