@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: MIT
  */
 
+// TODO: Add function keys on the tri layer
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
