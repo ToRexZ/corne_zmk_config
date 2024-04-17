@@ -15,7 +15,7 @@
 #define TRI 3
 
 &lt {
-        tapping-term-ms = <100>;
+        tapping-term-ms = <80>;
 };
 
 / {
@@ -44,7 +44,7 @@
    &kp TAB   &kp Q &kp W    &kp E     &kp R           &kp T    &kp Y         &kp U    &kp I     &kp O   &kp P    &kp RET
    &kp LSHFT &kp A &kp S    &kp D     &kp F           &kp G    &kp H         &kp J    &kp K     &kp L   &kp SEMI &kp RSHFT 
    &kp LCTRL &kp Z &kp X    &kp C     &kp V           &kp B    &kp N         &kp M    &kp COMMA &kp DOT &kp FSLH &kp DELETE
-                   &kp lGUI &mo RAISE &kp SPACE       &kp BSPC &lt LOWER ESC &kp LALT
+                   &kp LGUI &mo RAISE &kp SPACE       &kp BSPC &lt LOWER ESC &kp LALT
                         >;
                 };
                 lower_layer {
@@ -88,7 +88,8 @@
    &kp LSHFT &trans   &kp PERCENT &kp SQT   &kp DQT     &kp TILDE       &kp EQUAL &kp LPAR  &kp RPAR  &kp MINUS &kp BSLH &trans 
    &kp LCTRL &trans   &trans      &kp GRAVE &kp PIPE    &kp KP_MULTIPLY &kp UNDER &kp LBRC  &kp RBRC  &trans    &trans   &trans 
                                   &kp LGUI  &trans      &kp SPACE       &kp BSPC  &trans    &kp LALT
-                        };
+                           >;
+                };
                
 
 
