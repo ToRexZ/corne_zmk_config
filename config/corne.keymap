@@ -79,12 +79,12 @@
 // New raise layer 
                 raise_layer {
 // -----------------------------------------------------------------------------------------
-// | TAB  |  !  |  @  |  #  |  $  |  &  |   |  +  |  [  |  ]  |  ^  |     |       |
+// | DEL  |  !  |  @  |  #  |  $  |  &  |   |  +  |  [  |  ]  |  ^  |     |       |
 // | SHFT |  ^  |  %  |  '  |  "  |  ~  |   |  =  |  (  |  )  |  -  |  \  |       |
 // | CTRL |  (  |  )  |  `  | "|" |  *  |   |  _  |  {  |  }  |     |     |       |
 //                    | GUI |     | SPC |   | BKSP|     | ALT |
                         bindings = <
-   &kp TAB   &kp EXCL  &kp AT      &kp HASH  &kp DLLR    &kp AMPS        &kp PLUS  &kp LBKT  &kp RBKT  &kp CARET &trans   &trans
+   &kp DEL   &kp EXCL  &kp AT      &kp HASH  &kp DLLR    &kp AMPS        &kp PLUS  &kp LBKT  &kp RBKT  &kp CARET &trans   &trans
    &kp LSHFT &kp CARET &kp PERCENT &kp SQT   &kp DQT     &kp TILDE       &kp EQUAL &kp LPAR  &kp RPAR  &kp MINUS &kp BSLH &trans 
    &kp LCTRL &kp LPAR  &kp RPAR    &kp GRAVE &kp PIPE    &kp KP_MULTIPLY &kp UNDER &kp LBRC  &kp RBRC  &trans    &trans   &trans 
                                   &kp LGUI  &trans      &kp SPACE       &kp BSPC  &trans    &kp LALT
