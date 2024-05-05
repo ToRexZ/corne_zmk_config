@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: MIT
  */
 
+// TODO: Change the solidworks layer to a specific numpad layer to have ctrl when navigating with arrow keys.
+// TODO: Add home/end/insert etc on the navigation layer.
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
