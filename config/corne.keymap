@@ -6,13 +6,15 @@
 
 // TODO: Change the solidworks layer to a specific numpad layer to have ctrl when navigating with arrow keys.
 // TODO: Add home/end/insert etc on the navigation layer.
-#define HOST_OS 1
-#include "zmk-helpers/helper.h"
-#include "zmk-helpers/unicode-chars/danish.dtsi"
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+
+#define HOST_OS 1
+#include "zmk-helpers/helper.h"
+#include "zmk-helpers/key-labels/42.h"
+#include "zmk-helpers/unicode-chars/danish.dtsi"
 
 #define DEFAULT 0
 #define LOWER 1
@@ -89,9 +91,9 @@
 // | CTRL |  (  |  )  |  `  | "|" |  *  |   |  _  |  {  |  }  |  æ  |  ø  |       |
 //                    | GUI |     | SPC |   | BKSP|     | ALT |
                         bindings = <
-   &kp DEL   &kp EXCL  &kp AT      &kp HASH  &kp DLLR    &kp AMPS        &kp PLUS  &kp LBKT  &kp RBKT  &kp CARET &kp da_aa &trans
+   &kp DEL   &kp EXCL  &kp AT      &kp HASH  &kp DLLR    &kp AMPS        &kp PLUS  &kp LBKT  &kp RBKT  &kp CARET &da_aa    &trans
    &kp LSHFT &kp CARET &kp PERCENT &kp SQT   &kp DQT     &kp TILDE       &kp EQUAL &kp LPAR  &kp RPAR  &kp MINUS &kp BSLH  &trans 
-   &kp LCTRL &kp LPAR  &kp RPAR    &kp GRAVE &kp PIPE    &kp KP_MULTIPLY &kp UNDER &kp LBRC  &kp RBRC  &kp da_ae &kp da_oe &trans 
+   &kp LCTRL &kp LPAR  &kp RPAR    &kp GRAVE &kp PIPE    &kp KP_MULTIPLY &kp UNDER &kp LBRC  &kp RBRC  &da_ae    &da_oe    &trans 
                                   &kp LGUI  &trans      &kp SPACE       &kp BSPC  &trans    &kp LALT
                            >;
                 };
@@ -107,7 +109,7 @@
                         bindings = <
    &kp F1    &kp F2       &kp F3       &kp F4       &kp F5       &kp F6         &kp F7       &kp F8        &kp F9           &kp F10    &kp F11    &kp F12
    &kp LSHFT &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp C_VOL_UP &kp C_PREV    &kp C_PLAY_PAUSE &kp C_NEXT &kp C_MUTE &trans
-   &kp LCTRL &bt BT_CLR   &trans       &trans       &trans       &bt PRCNT      &kp C_VOL_DN &kp C_BRI_DEC &kp C_BRI_INC    &trans     &trans     &trans
+   &kp LCTRL &bt BT_CLR   &trans       &trans       &trans       &kp PRCNT      &kp C_VOL_DN &kp C_BRI_DEC &kp C_BRI_INC    &trans     &trans     &trans
                                        &kp LGUI     &trans       &kp SPACE      &kp BSPC &trans   &kp LALT
                         >;
                 };
