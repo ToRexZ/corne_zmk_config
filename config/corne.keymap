@@ -21,6 +21,9 @@
 #define RAISE 2
 #define TRI 3
 
+// ZMK_UNICODE_PAIR(l_par_brack,   N0, N0, N2, N8,   N0, N0, N3, C)  // ( -> U+0028, < -> U+003C
+// ZMK_UNICODE_PAIR(r_par_brack,   N0, N0, N2, N9,   N0, N0, N3, E)  // ) -> U+0029, > -> U+003E
+
 &lt {
         tapping-term-ms = <150>;
 };
@@ -68,22 +71,6 @@
                         >;
                 };
 
-// Previous raise layer 
-//                 raise_layer {
-// // -----------------------------------------------------------------------------------------
-// // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | ENT  |
-// // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-// //                    | GUI |     | SPC |   | BKSP|     | ALT |
-//                         bindings = <
-//    &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp RET
-//    &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-//    &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-//                              &kp LGUI &trans   &kp SPACE   &kp BSPC  &trans    &kp LALT
-//                         >;
-//                 };
-
-// New raise layer 
                 raise_layer {
 // -----------------------------------------------------------------------------------------
 // | DEL  |  !  |  @  |  #  |  $  |  &  |   |  +  |  [  |  ]  |  ^  |  å  |       |
@@ -97,7 +84,6 @@
                                   &kp LGUI  &trans      &kp SPACE       &kp BSPC  &trans    &kp LALT
                            >;
                 };
-               
 
 
                 tri_layer {
