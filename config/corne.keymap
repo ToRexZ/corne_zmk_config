@@ -25,80 +25,80 @@
 // ZMK_UNICODE_PAIR(r_par_brack,   N0, N0, N2, N9,   N0, N0, N3, E)  // ) -> U+0029, > -> U+003E
 
 &lt {
-        tapping-term-ms = <150>;
+  tapping-term-ms = <150>;
 };
 
 / {
 
-        conditional_layers {
-                compatible = "zmk,conditional-layers";
+  conditional_layers {
+    compatible = "zmk,conditional-layers";
 
-                // Behavior for simultaneous key press of both layer keys.
-                tri_layer {
-                        if-layers = <LOWER RAISE>;
-                        then-layer = <TRI>;
-                };
-        }; 
-
-
-        keymap {
-                compatible = "zmk,keymap";
-
-                default_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | ENT  |
-// | SHFT |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  | SHFT |
-// | CTRL |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | DEL  |
-//                    | GUI | RSE | SPC |   | BKSP| LOW  | ALT |
-                        bindings = <
-   &kp TAB   &kp Q &kp W    &kp E     &kp R           &kp T    &kp Y         &kp U    &kp I     &kp O   &kp P    &kp RET
-   &kp LSHFT &kp A &kp S    &kp D     &kp F           &kp G    &kp H         &kp J    &kp K     &kp L   &kp SEMI &kp RSHFT 
-   &kp LCTRL &kp Z &kp X    &kp C     &kp V           &kp B    &kp N         &kp M    &kp COMMA &kp DOT &kp FSLH &kp DELETE
-                   &kp LGUI &mo RAISE &lt LOWER SPACE &kp BSPC &lt LOWER ESC &kp LALT
-                        >;
-                };
-                lower_layer {
-// -----------------------------------------------------------------------------------------
-// | ESC  |  1   |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |     |
-// | SHFT |  3   |  7  |  8  |  9  |  0  |   | LFT | DWN |  UP | RGT |     |     |
-// | CTRL | BKSP |  =  |  ,  |  .  | ENT |   |     |     |     |     |     |     |
-//                    | GUI |     | SPC |   | BKSP|     | ALT |
-                        bindings = <
-   &kp ESC    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5     &kp N6   &kp N7   &kp N8   &kp N9    &kp N0 &trans
-   &kp LSHIFT   &kp N6       &kp N7       &kp N8       &kp N9       &kp N0     &kp LEFT &kp DOWN &kp UP   &kp RIGHT &trans &trans
-   &kp LCTRL  &kp BSPC     &kp EQUAL    &kp COMMA    &kp DOT      &kp RET    &trans   &trans   &trans   &trans    &trans &trans
-                                        &kp LGUI     &trans       &kp SPACE  &kp BSPC &trans   &kp LALT
-                        >;
-                };
-
-                raise_layer {
-// -----------------------------------------------------------------------------------------
-// | DEL  |  !  |  @  |  #  |  $  |  &  |   |  +  |  [  |  ]  |  ^  |  å  |       |
-// | SHFT |  ^  |  %  |  '  |  "  |  ~  |   |  =  |  (  |  )  |  æ  |  ø  |       |
-// | CTRL |  (  |  )  |  `  | "|" |  *  |   |  _  |  {  |  }  |  -  |  \  |       |
-//                    | GUI |     | SPC |   | BKSP|     | ALT |
-                        bindings = <
-   &kp DEL   &kp EXCL  &kp AT      &kp HASH  &kp DLLR    &kp AMPS        &kp PLUS  &kp LBKT  &kp RBKT  &kp CARET &da_aa   &trans
-   &kp LSHFT &kp CARET &kp PERCENT &kp SQT   &kp DQT     &kp TILDE       &kp EQUAL &kp LPAR  &kp RPAR  &da_ae    &da_oe   &trans 
-   &kp LCTRL &kp LPAR  &kp RPAR    &kp GRAVE &kp PIPE    &kp KP_MULTIPLY &kp UNDER &kp LBRC  &kp RBRC  &kp MINUS &kp BSLH &trans 
-                                  &kp LGUI  &trans      &kp SPACE       &kp BSPC  &trans    &kp LALT
-                           >;
-                };
+    // Behavior for simultaneous key press of both layer keys.
+    tri_layer {
+      if-layers = <LOWER RAISE>;
+      then-layer = <TRI>;
+    };
+  }; 
 
 
-                tri_layer {
-// -----------------------------------------------------------------------------------------
-// |  F1  | F2  |  F3  |  F4  |  F5  |  F6 |   |  F7  |   F8   |  F9    | F10  |  F11 | F12 |
-// | SHFT | BT 0| BT 1 | BT 2 | BT 3 | BT 4|   |  UP  |  PREV  |  PLAY  | NEXT | MUTE |     |
-// | CTRL | CLR |      |      |      | PSC |   |  DN  | BRI_DN | BRI_UP |      |      |     |
-//                     | GUI  |      | SPC |   | BKSP |        | ALT    |
-                        bindings = <
-   &kp F1    &kp F2       &kp F3       &kp F4       &kp F5       &kp F6         &kp F7       &kp F8        &kp F9           &kp F10    &kp F11    &kp F12
-   &kp LSHFT &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp C_VOL_UP &kp C_PREV    &kp C_PLAY_PAUSE &kp C_NEXT &kp C_MUTE &trans
-   &kp LCTRL &bt BT_CLR   &trans       &trans       &trans       &kp PSCRN      &kp C_VOL_DN &kp C_BRI_DEC &kp C_BRI_INC    &trans     &trans     &trans
-                                       &kp LGUI     &trans       &kp SPACE      &kp BSPC &trans   &kp LALT
-                        >;
-                };
-        };
+  keymap {
+    compatible = "zmk,keymap";
+
+    default_layer {
+    // -----------------------------------------------------------------------------------------
+    // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | ENT  |
+    // | SHFT |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  | SHFT |
+    // | CTRL |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | DEL  |
+    //                    | GUI | RSE | SPC |   | BKSP| LOW  | ALT |
+    bindings = <
+    &kp TAB   &kp Q &kp W    &kp E     &kp R           &kp T    &kp Y         &kp U    &kp I     &kp O   &kp P    &kp RET
+    &kp LSHFT &kp A &kp S    &kp D     &kp F           &kp G    &kp H         &kp J    &kp K     &kp L   &kp SEMI &kp RSHFT 
+    &kp LCTRL &kp Z &kp X    &kp C     &kp V           &kp B    &kp N         &kp M    &kp COMMA &kp DOT &kp FSLH &kp DELETE
+                    &kp LGUI &mo RAISE &lt LOWER SPACE &kp BSPC &lt LOWER ESC &kp LALT
+      >;
+    };
+
+    lower_layer {
+    // -----------------------------------------------------------------------------------------
+    // | ESC  |  1   |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |     |
+    // | SHFT |  3   |  7  |  8  |  9  |  0  |   | LFT | DWN |  UP | RGT |     |     |
+    // | CTRL | BKSP |  =  |  ,  |  .  | ENT |   |     |     |     |     |     |     |
+    //                    | GUI |     | SPC |   | BKSP|     | ALT |
+    bindings = <
+    &kp ESC    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5     &kp N6   &kp N7   &kp N8   &kp N9    &kp N0 &trans
+    &kp LSHIFT &kp N6       &kp N7       &kp N8       &kp N9       &kp N0     &kp LEFT &kp DOWN &kp UP   &kp RIGHT &trans &trans
+    &kp LCTRL  &kp BSPC     &kp EQUAL    &kp COMMA    &kp DOT      &kp RET    &trans   &trans   &trans   &trans    &trans &trans
+                                         &kp LGUI     &trans       &kp SPACE  &kp BSPC &trans   &kp LALT
+      >;
+    };
+
+    raise_layer {
+    // -----------------------------------------------------------------------------------------
+    // | DEL  |  !  |  @  |  #  |  $  |  &  |   |  +  |  [  |  ]  |  ^  |  å  |       |
+    // | SHFT |  ^  |  %  |  '  |  "  |  ~  |   |  =  |  (  |  )  |  æ  |  ø  |       |
+    // | CTRL |  (  |  )  |  `  | "|" |  *  |   |  _  |  {  |  }  |  -  |  \  |       |
+    //                    | GUI |     | SPC |   | BKSP|     | ALT |
+    bindings = <
+    &kp DEL   &kp EXCL  &kp AT      &kp HASH  &kp DLLR    &kp AMPS        &kp PLUS  &kp LBKT  &kp RBKT  &kp CARET &da_aa   &trans
+    &kp LSHFT &kp CARET &kp PERCENT &kp SQT   &kp DQT     &kp TILDE       &kp EQUAL &kp LPAR  &kp RPAR  &da_ae    &da_oe   &trans 
+    &kp LCTRL &kp LPAR  &kp RPAR    &kp GRAVE &kp PIPE    &kp KP_MULTIPLY &kp UNDER &kp LBRC  &kp RBRC  &kp MINUS &kp BSLH &trans 
+                                    &kp LGUI  &trans      &kp SPACE       &kp BSPC  &trans    &kp LALT
+      >;
+    };
+
+    tri_layer {
+      // -----------------------------------------------------------------------------------------
+      // |  F1  | F2  |  F3  |  F4  |  F5  |  F6 |   |  F7  |   F8   |  F9    | F10  |  F11 | F12 |
+      // | SHFT | BT 0| BT 1 | BT 2 | BT 3 | BT 4|   |  UP  |  PREV  |  PLAY  | NEXT | MUTE |     |
+      // | CTRL | CLR |      |      |      | PSC |   |  DN  | BRI_DN | BRI_UP |      |      |     |
+      //                     | GUI  |      | SPC |   | BKSP |        | ALT    |
+    bindings = <
+    &kp F1    &kp F2       &kp F3       &kp F4       &kp F5       &kp F6         &kp F7       &kp F8        &kp F9           &kp F10    &kp F11    &kp F12
+    &kp LSHFT &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp C_VOL_UP &kp C_PREV    &kp C_PLAY_PAUSE &kp C_NEXT &kp C_MUTE &trans
+    &kp LCTRL &bt BT_CLR   &trans       &trans       &trans       &kp PSCRN      &kp C_VOL_DN &kp C_BRI_DEC &kp C_BRI_INC    &trans     &trans     &trans
+                                        &kp LGUI     &trans       &kp SPACE      &kp BSPC &trans   &kp LALT
+      >;
+    };
+  };
 };
 /*  */
