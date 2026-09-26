@@ -1,0 +1,9 @@
+config CORNE_STATUS_SERVICE
+    bool "Expose keyboard status (profiles, bonds, layer) over a custom GATT service"
+    default y
+    depends on ZMK_BLE && (!ZMK_SPLIT || ZMK_SPLIT_ROLE_CENTRAL)
+    help
+      Adds a read-only, encryption-protected GATT characteristic with the
+      active BLE profile, each profile's bond and connection state, and the
+      highest active layer. Read by the vhr.corne Omarchy bar widget.
+      Only the central half talks to the host, so it defaults to on there.

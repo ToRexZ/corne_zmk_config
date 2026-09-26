@@ -1,0 +1,5 @@
+if(CONFIG_CORNE_STATUS_SERVICE)
+  zephyr_library()
+  zephyr_library_sources(src/status_service.c)
+  zephyr_include_directories(${APPLICATION_SOURCE_DIR}/include)
+endif()
