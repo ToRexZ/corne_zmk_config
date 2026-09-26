@@ -82,7 +82,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand mods
     //                    | GUI |     | SPC |   | BKSP|     | ALT |
     bindings = <
     &kp ESC    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5     &kp N6   &kp N7   &kp N8   &kp N9    &kp N0 &trans
-    &kp LSHIFT &kp N6       &kp N7       &kp N8       &kp N9       &kp N0     &kp LEFT &kp DOWN &kp UP   &kp RIGHT &trans &trans
+    &kp LSHIFT &hml LALT N6 &hml LGUI N7 &hml LCTRL N8 &hml LSHFT N9 &kp N0     &kp LEFT &hmr RSHFT DOWN &hmr RCTRL UP &hmr RGUI RIGHT &trans &trans
     &kp LCTRL  &kp BSPC     &kp EQUAL    &kp COMMA    &kp DOT      &kp RET    &trans   &trans   &trans   &trans    &trans &trans
                                          &kp LGUI     &trans       &kp SPACE  &kp BSPC &trans   &kp LALT
       >;
@@ -96,7 +96,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand mods
     //                    | GUI |     | SPC |   | BKSP|     | ALT |
     bindings = <
     &kp DEL   &kp EXCL  &kp AT      &kp HASH  &kp DLLR    &kp AMPS        &kp PLUS  &kp LBKT  &kp RBKT  &kp CARET &da_aa   &trans
-    &kp LSHFT &kp CARET &kp PERCENT &kp SQT   &kp DQT     &kp TILDE       &kp EQUAL &kp LPAR  &kp RPAR  &da_ae    &da_oe   &trans 
+    &kp LSHFT &hml LALT CARET &hml LGUI PERCENT &hml LCTRL SQT &hml LSHFT DQT &kp TILDE &kp EQUAL &hmr RSHFT LPAR &hmr RCTRL RPAR &da_ae &da_oe &trans 
     &kp LCTRL &kp LPAR  &kp RPAR    &kp GRAVE &kp PIPE    &kp KP_MULTIPLY &kp UNDER &kp LBRC  &kp RBRC  &kp MINUS &kp BSLH &trans 
                                     &kp LGUI  &trans      &kp SPACE       &kp BSPC  &trans    &kp LALT
       >;
@@ -110,7 +110,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand mods
       //                     | GUI  |      | SPC |   | BKSP |        | ALT    |
     bindings = <
     &kp F1    &kp F2       &kp F3       &kp F4       &kp F5       &kp F6         &kp F7       &kp F8        &kp F9           &kp F10    &kp F11    &kp F12
-    &kp LSHFT &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp C_VOL_UP &kp C_PREV    &kp C_PLAY_PAUSE &kp C_NEXT &kp C_MUTE &trans
+    &kp LSHFT &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp C_VOL_UP &hmr RSHFT C_PREV &hmr RCTRL C_PLAY_PAUSE &hmr RGUI C_NEXT &hmr LALT C_MUTE &trans
     &kp LCTRL &bt BT_CLR   &trans       &trans       &trans       &kp PSCRN      &kp C_VOL_DN &kp C_BRI_DEC &kp C_BRI_INC    &trans     &trans     &trans
                                         &kp LGUI     &trans       &kp SPACE      &kp BSPC &trans   &kp LALT
       >;
