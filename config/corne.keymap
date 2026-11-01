@@ -16,10 +16,16 @@
 #include "zmk-helpers/key-labels/42.h"
 #include "zmk-helpers/unicode-chars/danish.dtsi"
 
+// Order is precedence: a higher layer wins where it isn't &trans. GAME sits
+// right above DEFAULT so Lower/Raise still cover it; the game copies of
+// Lower/Raise sit above those; TRI stays on top so Fn always wins.
 #define DEFAULT 0
-#define LOWER 1
-#define RAISE 2
-#define TRI 3
+#define GAME 1
+#define LOWER 2
+#define RAISE 3
+#define GAME_LOWER 4
+#define GAME_RAISE 5
+#define TRI 6
 
 // ZMK_UNICODE_PAIR(l_par_brack,   N0, N0, N2, N8,   N0, N0, N3, C)  // ( -> U+0028, < -> U+003C
 // ZMK_UNICODE_PAIR(r_par_brack,   N0, N0, N2, N9,   N0, N0, N3, E)  // ) -> U+0029, > -> U+003E
@@ -43,6 +49,12 @@
 MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)  // left-hand mods
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand mods
 
+// Game mode A: tap = A, hold with another key = Alt (Alt+Tab one-handed).
+// Balanced, not positional: Tab is on the same hand. A roll (A down, E down,
+// A up) stays an A, because E is still held when A comes up.
+ZMK_HOLD_TAP(galt, bindings = <&kp>, <&kp>; flavor = "balanced";
+             tapping-term-ms = <200>;)
+
 / {
 
   conditional_layers {
@@ -53,7 +65,18 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand mods
       if-layers = <LOWER RAISE>;
       then-layer = <TRI>;
     };
-  }; 
+
+    // Game mode on: Lower/Raise get their homerow-mod-free copies on top.
+    game_lower_layer {
+      if-layers = <GAME LOWER>;
+      then-layer = <GAME_LOWER>;
+    };
+
+    game_raise_layer {
+      if-layers = <GAME RAISE>;
+      then-layer = <GAME_RAISE>;
+    };
+  };
 
 
   keymap {
@@ -72,6 +95,24 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand mods
     &kp LSHFT &hml LALT A &hml LGUI S &hml LCTRL D &hml LSHFT F &kp G    &kp H &hmr RSHFT J &hmr RCTRL K &hmr RGUI L &hmr LALT SEMI &kp RSHFT 
     &kp LCTRL &kp Z &kp X    &kp C     &kp V           &kp B    &kp N         &kp M    &kp COMMA &kp DOT &kp FSLH &kp DELETE
                     &kp LGUI &mo RAISE &lt LOWER SPACE &kp BSPC &lt LOWER ESC &kp LALT
+      >;
+    };
+
+    // Game mode (toggled from Fn, bottom-right or the V key): the default
+    // layout with the homerow mods off, so held keys stay keys (ESDF movement
+    // in games). Everything else falls through to the default layer. A keeps
+    // Alt via a quicker, balanced hold-tap so Alt+Tab still works one-handed.
+    game_layer {
+      display-name = "Game";
+    // -----------------------------------------------------------------------------------------
+    // |      |     |     |     |     |     |   |     |      |     |     |     |      |
+    // |      | A/ALT|  S  |  D  |  F  |     |   |     |  J   |  K  |  L  |  ;  |      |
+    // |      |     |     |     |     |     |   |     |      |     |     |     |      |
+    bindings = <
+    &trans &trans          &trans &trans &trans &trans    &trans &trans &trans &trans &trans   &trans
+    &trans &galt LALT A    &kp S  &kp D  &kp F  &trans    &trans &kp J  &kp K  &kp L  &kp SEMI &trans
+    &trans &trans          &trans &trans &trans &trans    &trans &trans &trans &trans &trans   &trans
+                           &trans &trans &trans           &trans &trans &trans
       >;
     };
 
@@ -105,17 +146,41 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand mods
       >;
     };
 
+    // Game mode + Lower (conditional): Lower's homerow-mod keys made plain.
+    game_lower_layer {
+      display-name = "Game Nums";
+    bindings = <
+    &trans &trans  &trans  &trans  &trans  &trans    &trans &trans    &trans  &trans    &trans &trans
+    &trans &kp N6  &kp N7  &kp N8  &kp N9  &trans    &trans &kp DOWN  &kp UP  &kp RIGHT &trans &trans
+    &trans &trans  &trans  &trans  &trans  &trans    &trans &trans    &trans  &trans    &trans &trans
+                           &trans  &trans  &trans    &trans &trans    &trans
+      >;
+    };
+
+    // Game mode + Raise (conditional): Raise's homerow-mod keys made plain.
+    game_raise_layer {
+      display-name = "Game Symbols";
+    bindings = <
+    &trans &trans     &trans       &trans   &trans   &trans    &trans &trans   &trans   &trans &trans &trans
+    &trans &kp CARET  &kp PERCENT  &kp SQT  &kp DQT  &trans    &trans &kp LPAR &kp RPAR &trans &trans &trans
+    &trans &trans     &trans       &trans   &trans   &trans    &trans &trans   &trans   &trans &trans &trans
+                                   &trans   &trans   &trans    &trans &trans   &trans
+      >;
+    };
+
     tri_layer {
       display-name = "Fn Media BT";
       // -----------------------------------------------------------------------------------------
       // |  F1  | F2  |  F3  |  F4  |  F5  |  F6 |   |  F7  |   F8   |  F9    | F10  |  F11 | F12 |
       // | SHFT | BT 0| BT 1 | BT 2 | BT 3 | BT 4|   |  UP  |  PREV  |  PLAY  | NEXT | MUTE |     |
-      // | CTRL | CLR |      |      |      | PSC |   |  DN  | BRI_DN | BRI_UP |      |      |     |
+      // | CTRL | CLR |      |      | GAME | PSC |   |  DN  | BRI_DN | BRI_UP |      |      | GAME|
       //                     | GUI  |      | SPC |   | BKSP |        | ALT    |
+      // GAME toggles game mode. Right one for both halves; left one (V, two
+      // keys from CLR) for when the right half is stowed: Raise + hold Space.
     bindings = <
     &kp F1    &kp F2       &kp F3       &kp F4       &kp F5       &kp F6         &kp F7       &kp F8        &kp F9           &kp F10    &kp F11    &kp F12
     &kp LSHFT &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp C_VOL_UP &hmr RSHFT C_PREV &hmr RCTRL C_PLAY_PAUSE &hmr RGUI C_NEXT &hmr LALT C_MUTE &trans
-    &kp LCTRL &bt BT_CLR   &trans       &trans       &trans       &kp PSCRN      &kp C_VOL_DN &kp C_BRI_DEC &kp C_BRI_INC    &trans     &trans     &trans
+    &kp LCTRL &bt BT_CLR   &trans       &trans       &tog GAME    &kp PSCRN      &kp C_VOL_DN &kp C_BRI_DEC &kp C_BRI_INC    &trans     &trans     &tog GAME
                                         &kp LGUI     &trans       &kp SPACE      &kp BSPC &trans   &kp LALT
       >;
     };
